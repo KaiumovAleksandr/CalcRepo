@@ -31,7 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button_Equal = new System.Windows.Forms.Button();
             this.button_MC = new System.Windows.Forms.Button();
-            this.button_MPlus = new System.Windows.Forms.Button();
+            this.button_Mplus = new System.Windows.Forms.Button();
             this.button_MR = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
             this.button_OpenBracket = new System.Windows.Forms.Button();
             this.textBox_Expression = new System.Windows.Forms.TextBox();
             this.button_1 = new System.Windows.Forms.Button();
+            this.button_Dot = new System.Windows.Forms.Button();
+            this.button_MS = new System.Windows.Forms.Button();
+            this.button_Mminus = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox_Editing.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,9 +76,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.button_Mminus, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.button_MS, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.button_Dot, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.button_Equal, 5, 7);
             this.tableLayoutPanel1.Controls.Add(this.button_MC, 5, 6);
-            this.tableLayoutPanel1.Controls.Add(this.button_MPlus, 5, 5);
+            this.tableLayoutPanel1.Controls.Add(this.button_Mplus, 5, 5);
             this.tableLayoutPanel1.Controls.Add(this.button_MR, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.button16, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.button15, 3, 6);
@@ -110,6 +116,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 386);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -139,18 +146,18 @@
             this.button_MC.Text = "MC";
             this.button_MC.UseVisualStyleBackColor = true;
             // 
-            // button_MPlus
+            // button_Mplus
             // 
-            this.button_MPlus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_MPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_MPlus.ForeColor = System.Drawing.Color.Blue;
-            this.button_MPlus.Location = new System.Drawing.Point(287, 245);
-            this.button_MPlus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
-            this.button_MPlus.Name = "button_MPlus";
-            this.button_MPlus.Size = new System.Drawing.Size(47, 38);
-            this.button_MPlus.TabIndex = 26;
-            this.button_MPlus.Text = "M+";
-            this.button_MPlus.UseVisualStyleBackColor = true;
+            this.button_Mplus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Mplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Mplus.ForeColor = System.Drawing.Color.Blue;
+            this.button_Mplus.Location = new System.Drawing.Point(287, 245);
+            this.button_Mplus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_Mplus.Name = "button_Mplus";
+            this.button_Mplus.Size = new System.Drawing.Size(47, 38);
+            this.button_Mplus.TabIndex = 26;
+            this.button_Mplus.Text = "M+";
+            this.button_Mplus.UseVisualStyleBackColor = true;
             // 
             // button_MR
             // 
@@ -177,6 +184,7 @@
             this.button16.TabIndex = 24;
             this.button16.Text = "-";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button13_Click);
             // 
             // button15
             // 
@@ -190,6 +198,7 @@
             this.button15.TabIndex = 23;
             this.button15.Text = "+";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -204,6 +213,7 @@
             this.button14.Text = "*";
             this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button13_Click);
             // 
             // button13
             // 
@@ -217,6 +227,7 @@
             this.button13.TabIndex = 21;
             this.button13.Text = "/";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button_mod
             // 
@@ -230,11 +241,12 @@
             this.button_mod.TabIndex = 20;
             this.button_mod.Text = "mod";
             this.button_mod.UseVisualStyleBackColor = true;
+            this.button_mod.Click += new System.EventHandler(this.button13_Click);
             // 
             // button_PlusMinus
             // 
             this.button_PlusMinus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_PlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_PlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_PlusMinus.Location = new System.Drawing.Point(7, 341);
             this.button_PlusMinus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.button_PlusMinus.Name = "button_PlusMinus";
@@ -254,6 +266,7 @@
             this.button_0.TabIndex = 18;
             this.button_0.Text = "0";
             this.button_0.UseVisualStyleBackColor = true;
+            this.button_0.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_9
             // 
@@ -266,6 +279,7 @@
             this.button_9.TabIndex = 17;
             this.button_9.Text = "9";
             this.button_9.UseVisualStyleBackColor = true;
+            this.button_9.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_8
             // 
@@ -278,6 +292,7 @@
             this.button_8.TabIndex = 16;
             this.button_8.Text = "8";
             this.button_8.UseVisualStyleBackColor = true;
+            this.button_8.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_7
             // 
@@ -290,6 +305,7 @@
             this.button_7.TabIndex = 15;
             this.button_7.Text = "7";
             this.button_7.UseVisualStyleBackColor = true;
+            this.button_7.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_6
             // 
@@ -302,6 +318,7 @@
             this.button_6.TabIndex = 14;
             this.button_6.Text = "6";
             this.button_6.UseVisualStyleBackColor = true;
+            this.button_6.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_5
             // 
@@ -314,6 +331,7 @@
             this.button_5.TabIndex = 13;
             this.button_5.Text = "5";
             this.button_5.UseVisualStyleBackColor = true;
+            this.button_5.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_4
             // 
@@ -326,6 +344,7 @@
             this.button_4.TabIndex = 12;
             this.button_4.Text = "4";
             this.button_4.UseVisualStyleBackColor = true;
+            this.button_4.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_3
             // 
@@ -338,6 +357,7 @@
             this.button_3.TabIndex = 11;
             this.button_3.Text = "3";
             this.button_3.UseVisualStyleBackColor = true;
+            this.button_3.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_2
             // 
@@ -350,6 +370,7 @@
             this.button_2.TabIndex = 10;
             this.button_2.Text = "2";
             this.button_2.UseVisualStyleBackColor = true;
+            this.button_2.Click += new System.EventHandler(this.button_1_Click);
             // 
             // label1
             // 
@@ -436,6 +457,7 @@
             this.button_C.TabIndex = 4;
             this.button_C.Text = "C";
             this.button_C.UseVisualStyleBackColor = true;
+            this.button_C.Click += new System.EventHandler(this.button_C_Click);
             // 
             // button_Backspace
             // 
@@ -450,6 +472,7 @@
             this.button_Backspace.TabIndex = 3;
             this.button_Backspace.Text = "Backspace";
             this.button_Backspace.UseVisualStyleBackColor = true;
+            this.button_Backspace.Click += new System.EventHandler(this.button_Backspace_Click);
             // 
             // button_CloseBracket
             // 
@@ -462,6 +485,7 @@
             this.button_CloseBracket.TabIndex = 2;
             this.button_CloseBracket.Text = ")";
             this.button_CloseBracket.UseVisualStyleBackColor = true;
+            this.button_CloseBracket.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_OpenBracket
             // 
@@ -474,6 +498,7 @@
             this.button_OpenBracket.TabIndex = 1;
             this.button_OpenBracket.Text = "(";
             this.button_OpenBracket.UseVisualStyleBackColor = true;
+            this.button_OpenBracket.Click += new System.EventHandler(this.button_1_Click);
             // 
             // textBox_Expression
             // 
@@ -498,6 +523,47 @@
             this.button_1.TabIndex = 9;
             this.button_1.Text = "1";
             this.button_1.UseVisualStyleBackColor = true;
+            this.button_1.Click += new System.EventHandler(this.button_1_Click);
+            // 
+            // button_Dot
+            // 
+            this.button_Dot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Dot.ForeColor = System.Drawing.Color.Red;
+            this.button_Dot.Location = new System.Drawing.Point(231, 341);
+            this.button_Dot.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_Dot.Name = "button_Dot";
+            this.button_Dot.Size = new System.Drawing.Size(42, 40);
+            this.button_Dot.TabIndex = 29;
+            this.button_Dot.Text = ".";
+            this.button_Dot.UseVisualStyleBackColor = true;
+            this.button_Dot.Click += new System.EventHandler(this.button_1_Click);
+            // 
+            // button_MS
+            // 
+            this.button_MS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_MS.ForeColor = System.Drawing.Color.Blue;
+            this.button_MS.Location = new System.Drawing.Point(231, 197);
+            this.button_MS.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_MS.Name = "button_MS";
+            this.button_MS.Size = new System.Drawing.Size(42, 38);
+            this.button_MS.TabIndex = 30;
+            this.button_MS.Text = "MS";
+            this.button_MS.UseVisualStyleBackColor = true;
+            // 
+            // button_Mminus
+            // 
+            this.button_Mminus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Mminus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Mminus.ForeColor = System.Drawing.Color.Blue;
+            this.button_Mminus.Location = new System.Drawing.Point(231, 245);
+            this.button_Mminus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_Mminus.Name = "button_Mminus";
+            this.button_Mminus.Size = new System.Drawing.Size(42, 38);
+            this.button_Mminus.TabIndex = 31;
+            this.button_Mminus.Text = "M-";
+            this.button_Mminus.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -530,7 +596,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_Equal;
         private System.Windows.Forms.Button button_MC;
-        private System.Windows.Forms.Button button_MPlus;
+        private System.Windows.Forms.Button button_Mplus;
         private System.Windows.Forms.Button button_MR;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
@@ -548,6 +614,9 @@
         private System.Windows.Forms.Button button_3;
         private System.Windows.Forms.Button button_2;
         private System.Windows.Forms.Button button_1;
+        private System.Windows.Forms.Button button_Dot;
+        private System.Windows.Forms.Button button_Mminus;
+        private System.Windows.Forms.Button button_MS;
     }
 }
 
