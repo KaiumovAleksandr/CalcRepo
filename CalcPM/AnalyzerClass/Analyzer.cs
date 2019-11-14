@@ -9,6 +9,9 @@ namespace AnalyzerClass
 
     public class Analaizer
     {
+        private static List<string> standart_operators =
+            new List<string>(new string[] { "(", ")", "+", "-", "*", "/", "%" });
+        private static List<string> operators = new List<string>(standart_operators);
         public static string lastError;
 
         /// <summary> 
@@ -91,26 +94,180 @@ namespace AnalyzerClass
                 return 2;
             return 0;
         }
-
+        /// <summary>
+        /// розділяє на операнди та оператори 
+        /// </summary>    
+       
+        private static IEnumerable<string> Separate(string input)
+        {
+            int pos = 0;
+            while (pos < input.Length)
+            {
+                string s = string.Empty + input[pos];
+                if (!standart_operators.Contains(input[pos].ToString()))
+                {
+                    if (Char.IsDigit(input[pos]))
+                        for (int i = pos + 1; i < input.Length &&
+                            (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
+                            s += input[i];
+                    else if (Char.IsLetter(input[pos]))
+                        for (int i = pos + 1; i < input.Length &&
+                            (Char.IsLetter(input[i]) || Char.IsDigit(input[i])); i++)
+                            s += input[i];
+                }
+                yield return s;
+                pos += s.Length;
+            }
+        }
+        /// <summary>
+        /// повертає пріоритет оператора 
+        /// </summary>
+        /// <param name="s">символ </param>
+        /// <returns> значення пріоритетності</returns>
+        private static byte GetPriority(string s)
+        {
+            switch (s)
+            {
+                case "(":
+                case ")":
+                    return 0;
+                case "+":
+                case "-":
+                    return 1;
+                case "*":
+                case "/":
+                case "%":
+                    return 2;
+                default:
+                    return 4;
+            }
+        }
         /// <summary> 
         /// Формує  масив, в якому розташовуються оператори і символи  представлені в зворотному польському записі(без дужок)
         /// На цьому ж етапі відшукується решта всіх помилок (див. код). По суті - це компіляція.
         /// </summary> 
         /// <returns>массив зворотнього польського запису</returns> 
+        /// 
         public static System.Collections.ArrayList CreateStack()
         {
+           
+            System.Collections.ArrayList outputSeparated = new System.Collections.ArrayList();
+            Stack<string> stack = new Stack<string>();
+            foreach (string c in Separate(expression))
+            {
+                if (operators.Contains(c))
+                {
+                    if (stack.Count > 0 && !c.Equals("("))
+                    {
+                        if (c.Equals(")"))
+                        {
+                            string s = stack.Pop();
+                            while (s != "(")
+                            {
+                                outputSeparated.Add(s);
+                                s = stack.Pop();
+                            }
+                        }
+                        else if (GetPriority(c) > GetPriority(stack.Peek()))
+                            stack.Push(c);
+                        else
+                        {
+                            while (stack.Count > 0 && GetPriority(c) <= GetPriority(stack.Peek()))
+                                outputSeparated.Add(stack.Pop());
+                            stack.Push(c);
+                        }
+                    }
+                    else
+                        stack.Push(c);
+                }
+                else
+                    outputSeparated.Add(c);
+            }
+            if (stack.Count > 0)
+                foreach (string c in stack)
+                    outputSeparated.Add(c);
 
-
-            return new System.Collections.ArrayList();
+            return outputSeparated;
+          
         }
 
         /// <summary> 
         /// Обчислення зворотнього польського запису 
         /// </summary> 
         ///<returns>результат обчислень,або повідомлення про помилку</returns> 
-        public static string RunEstimate()
+        public static string RunEstimate(string[] postfixNotation)
         {
-            return "";
+            //(string[])CreateStack().ToArray()
+            Stack<string> stack = new Stack<string>();
+            Queue<string> queue = new Queue<string>(postfixNotation);
+            string str = queue.Dequeue();
+            while (queue.Count >= 0)
+            {
+                if (!operators.Contains(str))
+                {
+                    stack.Push(str);
+                    str = queue.Dequeue();
+                }
+                else
+                {
+                    decimal summ = 0;
+                    try
+                    {
+
+                        switch (str)
+                        {
+
+                            case "+":
+                                {
+                                    decimal a = Convert.ToDecimal(stack.Pop());
+                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    summ = a + b;
+                                    break;
+                                }
+                            case "-":
+                                {
+                                    decimal a = Convert.ToDecimal(stack.Pop());
+                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    summ = b - a;
+                                    break;
+                                }
+                            case "*":
+                                {
+                                    decimal a = Convert.ToDecimal(stack.Pop());
+                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    summ = b * a;
+                                    break;
+                                }
+                            case "/":
+                                {
+                                    decimal a = Convert.ToDecimal(stack.Pop());
+                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    summ = b / a;
+                                    break;
+                                }
+                            case "^":
+                                {
+                                    decimal a = Convert.ToDecimal(stack.Pop());
+                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    summ = Convert.ToDecimal(Math.Pow(Convert.ToDouble(b), Convert.ToDouble(a)));
+                                    break;
+                                }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lastError = $"$ {ex.Message}";
+                        return $"$ {ex.Message}";
+                    }
+                    stack.Push(summ.ToString());
+                    if (queue.Count > 0)
+                        str = queue.Dequeue();
+                    else
+                        break;
+                }
+
+            }
+            return Convert.ToString(stack.Pop());
         }
 
         /// <summary> 
@@ -119,8 +276,14 @@ namespace AnalyzerClass
         /// <returns></returns> 
         public static string Estimate()
         {
-            return "";
+            if (CheckCurrency())
+            {
+                Format();
+                var postfixNotation = CreateStack();
+                return RunEstimate((string[])postfixNotation.ToArray(typeof(string)));
+            }
+            else
+                return lastError;         
         }
-
     }
 }

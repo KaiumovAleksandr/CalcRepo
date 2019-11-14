@@ -55,5 +55,25 @@ namespace UnitTestsAnalyzer
             string r = Analaizer.Format();
             Assert.AreEqual("1 + 2+2", r);
         }
+        [TestMethod]
+        public void CreateStack()
+        {
+            Analaizer.expression = "(234+3)-34";
+            var r = Analaizer.CreateStack();
+            System.Collections.ArrayList array = new System.Collections.ArrayList();
+            array.Add("234");
+            array.Add("3");
+            array.Add("+");
+            array.Add("34");
+            array.Add("-");
+            Assert.AreEqual(array.Count, r.Count);
+        }
+        [TestMethod]
+        public void RunEstimate()
+        {
+            Analaizer.expression = "(234+3)-34";            
+            var r = Analaizer.RunEstimate((string[])Analaizer.CreateStack().ToArray(typeof(string)));            
+            Assert.AreEqual("203",r);
+        }
     }
 }
