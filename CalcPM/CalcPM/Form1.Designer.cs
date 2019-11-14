@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_Memory = new System.Windows.Forms.Label();
+            this.button_Mminus = new System.Windows.Forms.Button();
+            this.button_MS = new System.Windows.Forms.Button();
+            this.button_Dot = new System.Windows.Forms.Button();
             this.button_Equal = new System.Windows.Forms.Button();
             this.button_MC = new System.Windows.Forms.Button();
             this.button_Mplus = new System.Windows.Forms.Button();
@@ -59,9 +63,6 @@
             this.button_OpenBracket = new System.Windows.Forms.Button();
             this.textBox_Expression = new System.Windows.Forms.TextBox();
             this.button_1 = new System.Windows.Forms.Button();
-            this.button_Dot = new System.Windows.Forms.Button();
-            this.button_MS = new System.Windows.Forms.Button();
-            this.button_Mminus = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox_Editing.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -76,6 +77,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.label_Memory, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.button_Mminus, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.button_MS, 4, 4);
             this.tableLayoutPanel1.Controls.Add(this.button_Dot, 4, 7);
@@ -116,9 +118,63 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(341, 386);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label_Memory
+            // 
+            this.label_Memory.AutoSize = true;
+            this.label_Memory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_Memory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Memory.ForeColor = System.Drawing.Color.Blue;
+            this.label_Memory.Location = new System.Drawing.Point(227, 288);
+            this.label_Memory.Name = "label_Memory";
+            this.label_Memory.Size = new System.Drawing.Size(50, 48);
+            this.label_Memory.TabIndex = 32;
+            this.label_Memory.Text = "M\r\n0";
+            this.label_Memory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button_Mminus
+            // 
+            this.button_Mminus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Mminus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Mminus.ForeColor = System.Drawing.Color.Blue;
+            this.button_Mminus.Location = new System.Drawing.Point(231, 245);
+            this.button_Mminus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_Mminus.Name = "button_Mminus";
+            this.button_Mminus.Size = new System.Drawing.Size(42, 38);
+            this.button_Mminus.TabIndex = 31;
+            this.button_Mminus.Text = "M-";
+            this.button_Mminus.UseVisualStyleBackColor = true;
+            this.button_Mminus.Click += new System.EventHandler(this.button_Mminus_Click);
+            // 
+            // button_MS
+            // 
+            this.button_MS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_MS.ForeColor = System.Drawing.Color.Blue;
+            this.button_MS.Location = new System.Drawing.Point(231, 197);
+            this.button_MS.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_MS.Name = "button_MS";
+            this.button_MS.Size = new System.Drawing.Size(42, 38);
+            this.button_MS.TabIndex = 30;
+            this.button_MS.Text = "MS";
+            this.button_MS.UseVisualStyleBackColor = true;
+            this.button_MS.Click += new System.EventHandler(this.button_MS_Click);
+            // 
+            // button_Dot
+            // 
+            this.button_Dot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Dot.ForeColor = System.Drawing.Color.Red;
+            this.button_Dot.Location = new System.Drawing.Point(231, 341);
+            this.button_Dot.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.button_Dot.Name = "button_Dot";
+            this.button_Dot.Size = new System.Drawing.Size(42, 40);
+            this.button_Dot.TabIndex = 29;
+            this.button_Dot.Text = ".";
+            this.button_Dot.UseVisualStyleBackColor = true;
+            this.button_Dot.Click += new System.EventHandler(this.button_1_Click);
             // 
             // button_Equal
             // 
@@ -145,6 +201,7 @@
             this.button_MC.TabIndex = 27;
             this.button_MC.Text = "MC";
             this.button_MC.UseVisualStyleBackColor = true;
+            this.button_MC.Click += new System.EventHandler(this.button_MC_Click);
             // 
             // button_Mplus
             // 
@@ -158,6 +215,7 @@
             this.button_Mplus.TabIndex = 26;
             this.button_Mplus.Text = "M+";
             this.button_Mplus.UseVisualStyleBackColor = true;
+            this.button_Mplus.Click += new System.EventHandler(this.button_Mplus_Click);
             // 
             // button_MR
             // 
@@ -171,6 +229,7 @@
             this.button_MR.TabIndex = 25;
             this.button_MR.Text = "MR";
             this.button_MR.UseVisualStyleBackColor = true;
+            this.button_MR.Click += new System.EventHandler(this.button_MR_Click);
             // 
             // button16
             // 
@@ -246,7 +305,7 @@
             // button_PlusMinus
             // 
             this.button_PlusMinus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_PlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_PlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_PlusMinus.Location = new System.Drawing.Point(7, 341);
             this.button_PlusMinus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.button_PlusMinus.Name = "button_PlusMinus";
@@ -254,6 +313,7 @@
             this.button_PlusMinus.TabIndex = 19;
             this.button_PlusMinus.Text = "+/-";
             this.button_PlusMinus.UseVisualStyleBackColor = true;
+            this.button_PlusMinus.Click += new System.EventHandler(this.button_PlusMinus_Click);
             // 
             // button_0
             // 
@@ -463,7 +523,7 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.button_Backspace, 2);
             this.button_Backspace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_Backspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Backspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Backspace.ForeColor = System.Drawing.Color.Red;
             this.button_Backspace.Location = new System.Drawing.Point(165, 10);
             this.button_Backspace.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
@@ -509,6 +569,7 @@
             this.textBox_Expression.Margin = new System.Windows.Forms.Padding(3, 12, 3, 15);
             this.textBox_Expression.Multiline = true;
             this.textBox_Expression.Name = "textBox_Expression";
+            this.textBox_Expression.ReadOnly = true;
             this.textBox_Expression.Size = new System.Drawing.Size(223, 21);
             this.textBox_Expression.TabIndex = 4;
             // 
@@ -524,46 +585,6 @@
             this.button_1.Text = "1";
             this.button_1.UseVisualStyleBackColor = true;
             this.button_1.Click += new System.EventHandler(this.button_1_Click);
-            // 
-            // button_Dot
-            // 
-            this.button_Dot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_Dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Dot.ForeColor = System.Drawing.Color.Red;
-            this.button_Dot.Location = new System.Drawing.Point(231, 341);
-            this.button_Dot.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
-            this.button_Dot.Name = "button_Dot";
-            this.button_Dot.Size = new System.Drawing.Size(42, 40);
-            this.button_Dot.TabIndex = 29;
-            this.button_Dot.Text = ".";
-            this.button_Dot.UseVisualStyleBackColor = true;
-            this.button_Dot.Click += new System.EventHandler(this.button_1_Click);
-            // 
-            // button_MS
-            // 
-            this.button_MS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_MS.ForeColor = System.Drawing.Color.Blue;
-            this.button_MS.Location = new System.Drawing.Point(231, 197);
-            this.button_MS.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
-            this.button_MS.Name = "button_MS";
-            this.button_MS.Size = new System.Drawing.Size(42, 38);
-            this.button_MS.TabIndex = 30;
-            this.button_MS.Text = "MS";
-            this.button_MS.UseVisualStyleBackColor = true;
-            // 
-            // button_Mminus
-            // 
-            this.button_Mminus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_Mminus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Mminus.ForeColor = System.Drawing.Color.Blue;
-            this.button_Mminus.Location = new System.Drawing.Point(231, 245);
-            this.button_Mminus.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
-            this.button_Mminus.Name = "button_Mminus";
-            this.button_Mminus.Size = new System.Drawing.Size(42, 38);
-            this.button_Mminus.TabIndex = 31;
-            this.button_Mminus.Text = "M-";
-            this.button_Mminus.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -617,6 +638,7 @@
         private System.Windows.Forms.Button button_Dot;
         private System.Windows.Forms.Button button_Mminus;
         private System.Windows.Forms.Button button_MS;
+        private System.Windows.Forms.Label label_Memory;
     }
 }
 
