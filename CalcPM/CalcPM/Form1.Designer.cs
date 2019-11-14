@@ -141,6 +141,7 @@
             // 
             this.button_Mminus.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_Mminus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Mminus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Mminus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Mminus.ForeColor = System.Drawing.Color.Blue;
             this.button_Mminus.Location = new System.Drawing.Point(231, 245);
@@ -156,6 +157,7 @@
             // 
             this.button_MS.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_MS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_MS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_MS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_MS.ForeColor = System.Drawing.Color.Blue;
             this.button_MS.Location = new System.Drawing.Point(231, 197);
@@ -171,6 +173,7 @@
             // 
             this.button_Dot.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_Dot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Dot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Dot.ForeColor = System.Drawing.Color.Red;
             this.button_Dot.Location = new System.Drawing.Point(231, 341);
@@ -186,6 +189,7 @@
             // 
             this.button_Equal.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_Equal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Equal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Equal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Equal.ForeColor = System.Drawing.Color.Red;
             this.button_Equal.Location = new System.Drawing.Point(287, 341);
@@ -200,6 +204,7 @@
             // 
             this.button_MC.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_MC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_MC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_MC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_MC.ForeColor = System.Drawing.Color.Blue;
             this.button_MC.Location = new System.Drawing.Point(287, 293);
@@ -215,6 +220,7 @@
             // 
             this.button_Mplus.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_Mplus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Mplus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Mplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Mplus.ForeColor = System.Drawing.Color.Blue;
             this.button_Mplus.Location = new System.Drawing.Point(287, 245);
@@ -230,6 +236,7 @@
             // 
             this.button_MR.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_MR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_MR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_MR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_MR.ForeColor = System.Drawing.Color.Blue;
             this.button_MR.Location = new System.Drawing.Point(287, 197);
@@ -245,6 +252,7 @@
             // 
             this.button16.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button16.ForeColor = System.Drawing.Color.Red;
             this.button16.Location = new System.Drawing.Point(175, 341);
@@ -260,6 +268,7 @@
             // 
             this.button15.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button15.ForeColor = System.Drawing.Color.Red;
             this.button15.Location = new System.Drawing.Point(175, 293);
@@ -275,6 +284,7 @@
             // 
             this.button14.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button14.ForeColor = System.Drawing.Color.Red;
             this.button14.Location = new System.Drawing.Point(175, 245);
@@ -291,6 +301,7 @@
             // 
             this.button13.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button13.ForeColor = System.Drawing.Color.Red;
             this.button13.Location = new System.Drawing.Point(175, 197);
@@ -306,6 +317,7 @@
             // 
             this.button_mod.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_mod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_mod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_mod.ForeColor = System.Drawing.Color.Red;
             this.button_mod.Location = new System.Drawing.Point(119, 341);
@@ -321,6 +333,7 @@
             // 
             this.button_PlusMinus.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_PlusMinus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_PlusMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_PlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_PlusMinus.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_PlusMinus.Location = new System.Drawing.Point(7, 341);
@@ -336,6 +349,7 @@
             // 
             this.button_0.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_0.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_0.Location = new System.Drawing.Point(63, 341);
@@ -351,6 +365,7 @@
             // 
             this.button_9.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_9.Location = new System.Drawing.Point(119, 293);
@@ -366,6 +381,7 @@
             // 
             this.button_8.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_8.Location = new System.Drawing.Point(63, 293);
@@ -381,6 +397,7 @@
             // 
             this.button_7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_7.Location = new System.Drawing.Point(7, 293);
@@ -396,6 +413,7 @@
             // 
             this.button_6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_6.Location = new System.Drawing.Point(119, 245);
@@ -411,6 +429,7 @@
             // 
             this.button_5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_5.Location = new System.Drawing.Point(63, 245);
@@ -426,6 +445,7 @@
             // 
             this.button_4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_4.Location = new System.Drawing.Point(7, 245);
@@ -441,6 +461,7 @@
             // 
             this.button_3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_3.Location = new System.Drawing.Point(119, 197);
@@ -456,6 +477,7 @@
             // 
             this.button_2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_2.Location = new System.Drawing.Point(63, 197);
@@ -551,6 +573,7 @@
             // 
             this.button_C.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_C.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_C.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_C.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_C.ForeColor = System.Drawing.Color.Red;
             this.button_C.Location = new System.Drawing.Point(273, 10);
@@ -567,6 +590,7 @@
             this.button_Backspace.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.tableLayoutPanel2.SetColumnSpan(this.button_Backspace, 2);
             this.button_Backspace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Backspace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Backspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Backspace.ForeColor = System.Drawing.Color.Red;
             this.button_Backspace.Location = new System.Drawing.Point(165, 10);
@@ -582,6 +606,7 @@
             // 
             this.button_CloseBracket.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_CloseBracket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_CloseBracket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_CloseBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_CloseBracket.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_CloseBracket.Location = new System.Drawing.Point(57, 10);
@@ -597,6 +622,7 @@
             // 
             this.button_OpenBracket.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_OpenBracket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_OpenBracket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_OpenBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_OpenBracket.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_OpenBracket.Location = new System.Drawing.Point(3, 10);
@@ -626,6 +652,7 @@
             // 
             this.button_1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.button_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_1.Location = new System.Drawing.Point(7, 197);
