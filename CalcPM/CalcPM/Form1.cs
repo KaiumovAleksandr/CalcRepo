@@ -16,7 +16,6 @@ namespace CalcPM
         public Form1()
         {
             InitializeComponent();
-            textBox_Result.Text = "25.00";
         }
 
         private void button_1_Click(object sender, EventArgs e)
