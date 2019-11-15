@@ -65,20 +65,17 @@ namespace CalcTests
             //act
             var res = Math.Div(firstNumber, secondNumber);
             //assert
-            Assert.Equal((double)firstNumber / secondNumber, res);
+            Assert.Equal(firstNumber / secondNumber, res);
         }
 
         [Theory]
         [InlineData(5, 0)]
         public void DivTestTheorybyZero(long firstNumber, long secondNumber)
         {
-            //act
-            var res = Math.Div(firstNumber, secondNumber);
-            //assert
-            if (res == 0)
+            Assert.Throws<DivideByZeroException>(() =>
             {
-                Assert.Equal("Error 09", Math.LastError);
-            }
+                Math.Div(firstNumber, secondNumber);
+            });
         }
 
         [Theory]
@@ -88,17 +85,17 @@ namespace CalcTests
             //act
             var res = Math.Mod(firstNumber, secondNumber);
             //assert
-            Assert.Equal(firstNumber%secondNumber, res);
+            Assert.Equal(firstNumber % secondNumber, res);
         }
 
         [Theory]
         [InlineData(-5)]
-        public void AbsTestTheory(long Number)
+        public void AbsTestTheory(int Number)
         {
             //act
             var res = Math.Abs(Number);
             //assert
-            Assert.Equal(Number*-1, res);
+            Assert.Equal(System.Math.Abs(Number), res);
         }
 
         [Theory]

@@ -4,11 +4,6 @@ namespace CalcFunction
 {
     public class Math
     {
-        /// <summary>
-        /// Останнє повідомлення про помилку.
-        /// </summary>
-        public static string LastError => _lastError;
-        private static string _lastError = String.Empty;
 
         /// <summary>
         /// The function of addition of numbers firstNumber and secondNumber
@@ -40,12 +35,7 @@ namespace CalcFunction
         /// <param name="firstNumber">divided</param>
         /// <param name="secondNumber">divider</param>
         /// <returns>fraction</returns>
-        public static double Div(long firstNumber, long secondNumber)
-        {
-            if (secondNumber != 0) return (double)firstNumber / secondNumber;
-            _lastError = "Error 09";
-            return 0;
-        }
+        public static double Div(long firstNumber, long secondNumber) => firstNumber / secondNumber;
 
         /// <summary>
         /// The function of module division 
@@ -60,7 +50,7 @@ namespace CalcFunction
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
-        public static double Abs(long number) => number*-1;
+        public static double Abs(int number) => System.Math.Abs(number);
 
         /// <summary>
         /// unary minus
