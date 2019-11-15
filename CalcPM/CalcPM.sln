@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcPM", "CalcPM\CalcPM.csproj", "{61005420-8CDB-41F3-B160-B7D741ADE45C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcFunction", "CalcFunction\CalcFunction.csproj", "{9EAEA752-7D5F-4A43-BFD0-77BEA53D135D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{AD50969A-E074-4004-87A5-66C90CC8B7E3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcExceptionLibrary", "CalcExceptionLibrary\CalcExceptionLibrary.csproj", "{7F030935-01A2-4936-AD2F-6C59970E7C80}"
 EndProject
 Global
@@ -21,6 +25,14 @@ Global
 		{7F030935-01A2-4936-AD2F-6C59970E7C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F030935-01A2-4936-AD2F-6C59970E7C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F030935-01A2-4936-AD2F-6C59970E7C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EAEA752-7D5F-4A43-BFD0-77BEA53D135D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAEA752-7D5F-4A43-BFD0-77BEA53D135D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAEA752-7D5F-4A43-BFD0-77BEA53D135D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAEA752-7D5F-4A43-BFD0-77BEA53D135D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD50969A-E074-4004-87A5-66C90CC8B7E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD50969A-E074-4004-87A5-66C90CC8B7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD50969A-E074-4004-87A5-66C90CC8B7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD50969A-E074-4004-87A5-66C90CC8B7E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
