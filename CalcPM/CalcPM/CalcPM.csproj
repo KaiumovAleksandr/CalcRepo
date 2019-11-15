@@ -84,5 +84,11 @@
     <Content Include="Resources\calculator_3534.ico" />
     <None Include="Resources\gettyimages-874041362-612x612.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalcExceptionLibrary\CalcExceptionLibrary.csproj">
+      <Project>{7f030935-01a2-4936-ad2f-6c59970e7c80}</Project>
+      <Name>CalcExceptionLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
