@@ -227,7 +227,7 @@ namespace AnalyzerClass
                 }
                 else
                 {
-                    decimal summ = 0;
+                    double summ = 0;
                     try
                     {
 
