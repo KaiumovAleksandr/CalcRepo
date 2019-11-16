@@ -40,21 +40,14 @@ namespace AnalyzerClass
         {
             int numberOpenBracket = 0;
             int numberClosedBracket = 0;
-            int numberSimbols = 0;
-            int numberDigits = 0;
+           
             foreach (var ch in expression)
             {
                 if (ch == ')')
                     ++numberClosedBracket;
                 if (ch == '(')
                     ++numberOpenBracket;
-                if (char.IsDigit(ch))
-                    ++numberDigits;
-                if (char.IsSymbol(ch))
-                {
-                    if (ch != ')' && ch != '(')
-                        ++numberSimbols;
-                }
+                
             }
             if (numberOpenBracket != numberClosedBracket)
             {
@@ -64,14 +57,37 @@ namespace AnalyzerClass
                     erposition = expression.LastIndexOf(')');
                 return false;
             }
-            if (numberSimbols * 2 != numberDigits)
-                return false;
+           
             //якщо останній символ не є цифрою і не є ) 
             if (char.IsDigit(expression[expression.Length - 1]) == false && expression[expression.Length - 1] != ')')
             {
                 erposition = expression.Length - 1;
                 return false;
             }
+
+            for (int i = 0; i < expression.Length; i++)
+            {
+                if (i == 0)
+                    continue;
+                if (standart_operators.Contains(expression[i].ToString())) //якщо це стандартний оператор і не дужка
+                {
+
+                    char prev = expression[i - 1];
+                    if (char.IsDigit(prev) == false && (prev != '(' && prev != ')')) //якщо минулий символ теж оператор але не дужка 
+                        if (expression[i] != '(')//якщо минулий символ оператор але поточний символ відкриваюча дужка Приклад(a+b)+(
+                        return false;
+                }
+                else
+                {
+                    if (char.IsDigit(expression[i]) == false)
+                    {
+                        erposition = i;
+                        return false;
+                    }
+                }
+
+            }
+
 
             return true;
         }

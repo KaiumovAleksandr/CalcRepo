@@ -47,7 +47,20 @@ namespace UnitTestsAnalyzer
             bool r = Analaizer.CheckCurrency();
             Assert.AreEqual(true, r);
         }
-
+        [TestMethod]
+        public void isCorrectTwoOperators()
+        {
+            Analaizer.expression = "(1+2)+(1+3)";
+            bool r = Analaizer.CheckCurrency();
+            Assert.AreEqual(true, r);
+        }
+        [TestMethod]
+        public void isIncorrectTwoOperators()
+        {
+            Analaizer.expression = "(1++2)+(1+3)";
+            bool r = Analaizer.CheckCurrency();
+            Assert.AreEqual(false, r);
+        }
         [TestMethod]
         public void IsFormatedSpaces()
         {
