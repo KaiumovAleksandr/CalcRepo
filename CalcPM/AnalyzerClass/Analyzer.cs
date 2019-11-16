@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using CalcFunction;
 namespace AnalyzerClass
 {
 
     public class Analaizer
     {
+        
         private static List<string> standart_operators =
             new List<string>(new string[] { "(", ")", "+", "-", "*", "/", "%" });
         private static List<string> operators = new List<string>(standart_operators);
-        public static string lastError;
+       
 
         /// <summary> 
         /// позиція виразу, на якій знайдена синтаксична помилка (у  
@@ -235,44 +236,43 @@ namespace AnalyzerClass
 
                             case "+":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = a + b;
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ = CalcFunction.Math.Add(a,b);
                                     break;
                                 }
                             case "-":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = b - a;
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ =CalcFunction.Math.Sub(a,b);
                                     break;
                                 }
                             case "*":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = b * a;
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ = CalcFunction.Math.Mult(a,b);
                                     break;
                                 }
                             case "/":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = b / a;
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ = CalcFunction.Math.Div(a,b) ;
                                     break;
                                 }
-                            case "^":
+                            case "%":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = Convert.ToDecimal(Math.Pow(Convert.ToDouble(b), Convert.ToDouble(a)));
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ = CalcFunction.Math.Mod(a, b);
                                     break;
                                 }
                         }
                     }
                     catch (Exception ex)
-                    {
-                        lastError = $"$ {ex.Message}";
+                    {                        
                         return $"$ {ex.Message}";
                     }
                     stack.Push(summ.ToString());
@@ -299,7 +299,7 @@ namespace AnalyzerClass
                 return RunEstimate((string[])postfixNotation.ToArray(typeof(string)));
             }
             else
-                return lastError;         
+                return "$Error";         
         }
     }
 }
