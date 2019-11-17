@@ -117,6 +117,15 @@ namespace AnalyzerClass
                             (Char.IsLetter(input[i]) || Char.IsDigit(input[i])); i++)
                             s += input[i];
                 }
+				 else
+                {
+                    if (input[pos] == '-' && char.IsDigit(input[pos+1]))
+                    {
+                        for (int i = pos + 1; i < input.Length &&
+                            (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
+                            s += input[i];
+                    }
+                }
                 yield return s;
                 pos += s.Length;
             }
@@ -221,35 +230,35 @@ namespace AnalyzerClass
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Add(a, b);
+                                summ = CalcFunction.Math.Add(b, a);
                                 break;
                             }
                         case "-":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Sub(a, b);
+                                summ = CalcFunction.Math.Sub(b, a);
                                 break;
                             }
                         case "*":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Mult(a, b);
+                                summ = CalcFunction.Math.Mult(b, a);
                                 break;
                             }
                         case "/":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Div(a, b);
+                                summ = CalcFunction.Math.Div(b, a);
                                 break;
                             }
                         case "%":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Mod(a, b);
+                                summ = CalcFunction.Math.Mod(b, a);
                                 break;
                             }
                     }
