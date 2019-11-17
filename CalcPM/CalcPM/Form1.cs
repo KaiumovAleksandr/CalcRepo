@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 using CalcExceptionLibrary;
+using AnalyzerClass;
 
 namespace CalcPM
 {
@@ -111,5 +112,10 @@ namespace CalcPM
             
         }
 
+        private void button_Equal_Click(object sender, EventArgs e)
+        {
+            Analaizer.expression = textBox_Expression.Text;
+            textBox_Result.Text = Analaizer.Estimate();
+        }
     }
 }

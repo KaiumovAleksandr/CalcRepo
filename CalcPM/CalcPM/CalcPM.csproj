@@ -85,6 +85,10 @@
     <None Include="Resources\gettyimages-874041362-612x612.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AnalyzerClass\AnalyzerClass.csproj">
+      <Project>{74378e18-8864-4b7d-9120-df683c07c441}</Project>
+      <Name>AnalyzerClass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CalcExceptionLibrary\CalcExceptionLibrary.csproj">
       <Project>{7f030935-01a2-4936-ad2f-6c59970e7c80}</Project>
       <Name>CalcExceptionLibrary</Name>

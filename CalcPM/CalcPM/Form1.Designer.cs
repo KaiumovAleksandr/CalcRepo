@@ -199,6 +199,7 @@
             this.button_Equal.TabIndex = 28;
             this.button_Equal.Text = "=";
             this.button_Equal.UseVisualStyleBackColor = false;
+            this.button_Equal.Click += new System.EventHandler(this.button_Equal_Click);
             // 
             // button_MC
             // 
