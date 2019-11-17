@@ -65,8 +65,12 @@ namespace AnalyzerClass
                 {
                     char prev = expression[i - 1];
                     if (char.IsDigit(prev) == false && (prev != '(' && prev != ')')) //якщо минулий символ теж оператор але не дужка 
-                        if (expression[i] != '(')//якщо минулий символ оператор але поточний символ відкриваюча дужка Приклад(a+b)+(
+                        if (expression[i] != '(' && expression[i] !='-')//якщо минулий символ оператор але поточний символ не є відкриваюча дужка Приклад(a+b)+(
                             throw new CalcException(4, i);     //Error 04 - два підряд оператори на і-тому символі
+                    if(expression[i]=='(' && char.IsDigit(prev))  //якщо дужка поставлена після цифри
+                    {
+                        throw new CalcException(2, i); //Error 02 - Невірний оператор на і-тому символі
+                    }
                 }
                 else
                 {
@@ -119,7 +123,12 @@ namespace AnalyzerClass
                 }
 				 else
                 {
-                    if (input[pos] == '-' && char.IsDigit(input[pos+1]))
+                    char prev;
+                    if (pos - 1 != (-1))
+                        prev = input[pos - 1];
+                    else
+                        prev = '(';
+                    if (input[pos] == '-' && char.IsDigit(input[pos+1]) && standart_operators.Contains(prev.ToString()))
                     {
                         for (int i = pos + 1; i < input.Length &&
                             (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
