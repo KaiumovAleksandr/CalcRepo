@@ -144,5 +144,10 @@ namespace CalcPM
             }
             
         }
+
+        private void button_mod_Click(object sender, EventArgs e)
+        {
+            textBox_Expression.Text += $" % ";
+        }
     }
 }

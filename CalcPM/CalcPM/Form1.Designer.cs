@@ -328,7 +328,7 @@
             this.button_mod.TabIndex = 20;
             this.button_mod.Text = "mod";
             this.button_mod.UseVisualStyleBackColor = false;
-            this.button_mod.Click += new System.EventHandler(this.button13_Click);
+            this.button_mod.Click += new System.EventHandler(this.button_mod_Click);
             // 
             // button_PlusMinus
             // 
