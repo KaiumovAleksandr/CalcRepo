@@ -10,7 +10,7 @@ namespace AnalyzerClass
         ///  можливі оператори для здійснення математичних операцій
         /// </summary>
         private static List<string> standart_operators =
-            new List<string>(new string[] { "(", ")", "+", "-", "*", "/", "%" });
+            new List<string>(new string[] { "(",")", "+", "-", "*", "/", "%", "," });
         private static List<string> operators = new List<string>(standart_operators);
 
 
@@ -19,11 +19,7 @@ namespace AnalyzerClass
         /// </summary> 
         public static string expression = "";
 
-        /// <summary>  
-        /// Показує, чи є необхідність у виведенні повідомлень про помилки.  
-        ///У разі консольного запуску програми це значення - false. 
-        /// </summary> 
-        public static bool ShowMessage = true;
+        
         /// <summary> 
         /// Перевірка коректності структури в дужках вхідного виразу 
         ///  а також знаходить помилки в кінці рядка 
@@ -89,7 +85,8 @@ namespace AnalyzerClass
         /// <returns>кінцевий рядок або повідомлення про помилку, що починаються з спец. символу &</returns> 
         public static string Format()
         {
-            return expression.Replace(" ", "");
+            string tmpExpression = expression.Replace(" ", "");
+            return tmpExpression.Replace(".",",");
         }
         private static int Priority(char oper)
         {
