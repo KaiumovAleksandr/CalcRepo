@@ -112,10 +112,37 @@ namespace CalcPM
             
         }
 
-        private void button_Equal_Click(object sender, EventArgs e)
+        public void button_Equal_Click(object sender, EventArgs e)
         {
             Analaizer.expression = textBox_Expression.Text;
-            textBox_Result.Text = Analaizer.Estimate();
+            string res = string.Empty;
+            try
+            {
+                res = Analaizer.Estimate();
+                textBox_Result.Text = res;
+            }
+            catch (CalcException ex)
+            {
+                switch (ex.ErrorCode)
+                {
+                    case 2:
+                        textBox_Result.Text = $"Error 02. Unknown operator at {ex.ErrorPos} position.";
+                        break;
+                    case 3:
+                        textBox_Result.Text = "Error 03. Incorrect syntax construction of expression.";
+                        break;
+                    case 4:
+                        textBox_Result.Text = $"Error 04. Two same opeartors in a row at {ex.ErrorPos} position.";
+                        break;
+                    case 5:
+                        textBox_Result.Text = "Error 05. Unfinished expression.";
+                        break;
+                    case 9:
+                        textBox_Result.Text = "Error 09. Сannot be divided by zero.";
+                        break;
+                }
+            }
+            
         }
     }
 }
