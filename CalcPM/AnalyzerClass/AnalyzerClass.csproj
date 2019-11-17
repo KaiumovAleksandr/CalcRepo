@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CalcExceptionLibrary">
+      <HintPath>..\CalcExceptionLibrary\bin\Debug\CalcExceptionLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="CalcFunction">
       <HintPath>..\CalcFunction\bin\Debug\netstandard2.0\CalcFunction.dll</HintPath>
     </Reference>

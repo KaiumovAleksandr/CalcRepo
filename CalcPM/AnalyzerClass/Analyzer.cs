@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CalcFunction;
+using CalcExceptionLibrary;
 namespace AnalyzerClass
 {
 
     public class Analaizer
     {
-        
+        /// <summary>
+        ///  можливі оператори для здійснення математичних операцій
+        /// </summary>
         private static List<string> standart_operators =
             new List<string>(new string[] { "(", ")", "+", "-", "*", "/", "%" });
         private static List<string> operators = new List<string>(standart_operators);
-       
 
-        /// <summary> 
-        /// позиція виразу, на якій знайдена синтаксична помилка (у  
-        /// випадку відловлення на рівні виконання - не визначається) 
-        /// </summary> 
-        private static int erposition = 0;
+
         /// <summary> 
         /// Вхідний вираз 
         /// </summary> 
@@ -39,57 +36,49 @@ namespace AnalyzerClass
         /// помилки повертає false, а в erposition записує позицію, на  якій виникла помилка.
         public static bool CheckCurrency()
         {
+
             int numberOpenBracket = 0;
             int numberClosedBracket = 0;
-           
+
             foreach (var ch in expression)
             {
                 if (ch == ')')
                     ++numberClosedBracket;
                 if (ch == '(')
                     ++numberOpenBracket;
-                
             }
             if (numberOpenBracket != numberClosedBracket)
             {
-                if (numberOpenBracket > numberClosedBracket)
-                    erposition = expression.LastIndexOf('(');
-                else
-                    erposition = expression.LastIndexOf(')');
-                return false;
+                throw new CalcException(3);  //невірна синтаксична конструкція вхідного виразу
             }
-           
+
             //якщо останній символ не є цифрою і не є ) 
             if (char.IsDigit(expression[expression.Length - 1]) == false && expression[expression.Length - 1] != ')')
             {
-                erposition = expression.Length - 1;
-                return false;
+                throw new CalcException(5); //Error 05 -незавершений вираз
             }
 
+            //видалити всі пробіли
+            expression = Format();
             for (int i = 0; i < expression.Length; i++)
             {
                 if (i == 0)
                     continue;
                 if (standart_operators.Contains(expression[i].ToString())) //якщо це стандартний оператор і не дужка
                 {
-
                     char prev = expression[i - 1];
                     if (char.IsDigit(prev) == false && (prev != '(' && prev != ')')) //якщо минулий символ теж оператор але не дужка 
                         if (expression[i] != '(')//якщо минулий символ оператор але поточний символ відкриваюча дужка Приклад(a+b)+(
-                        return false;
+                            throw new CalcException(4, i);     //Error 04 - два підряд оператори на і-тому символі
                 }
                 else
                 {
                     if (char.IsDigit(expression[i]) == false)
                     {
-                        erposition = i;
-                        return false;
+                        throw new CalcException(2, i); //Error 02 - Невірний оператор на і-тому символі
                     }
                 }
-
             }
-
-
             return true;
         }
 
@@ -99,9 +88,7 @@ namespace AnalyzerClass
         /// <returns>кінцевий рядок або повідомлення про помилку, що починаються з спец. символу &</returns> 
         public static string Format()
         {
-            expression = expression.Replace("  ", " ");
-
-            return expression;
+            return expression.Replace(" ", "");
         }
         private static int Priority(char oper)
         {
@@ -111,10 +98,11 @@ namespace AnalyzerClass
                 return 2;
             return 0;
         }
+
         /// <summary>
         /// розділяє на операнди та оператори 
         /// </summary>    
-       
+
         private static IEnumerable<string> Separate(string input)
         {
             int pos = 0;
@@ -167,7 +155,7 @@ namespace AnalyzerClass
         /// 
         public static System.Collections.ArrayList CreateStack()
         {
-           
+
             System.Collections.ArrayList outputSeparated = new System.Collections.ArrayList();
             Stack<string> stack = new Stack<string>();
             foreach (string c in Separate(expression))
@@ -205,7 +193,7 @@ namespace AnalyzerClass
                     outputSeparated.Add(c);
 
             return outputSeparated;
-          
+
         }
 
         /// <summary> 
@@ -214,7 +202,7 @@ namespace AnalyzerClass
         ///<returns>результат обчислень,або повідомлення про помилку</returns> 
         public static string RunEstimate(string[] postfixNotation)
         {
-            //(string[])CreateStack().ToArray()
+
             Stack<string> stack = new Stack<string>();
             Queue<string> queue = new Queue<string>(postfixNotation);
             string str = queue.Dequeue();
@@ -228,52 +216,45 @@ namespace AnalyzerClass
                 else
                 {
                     double summ = 0;
-                    try
+
+                    switch (str)
                     {
 
-                        switch (str)
-                        {
-
-                            case "+":
-                                {
-                                    double a = Convert.ToDouble(stack.Pop());
-                                    double b = Convert.ToDouble(stack.Pop());
-                                    summ = CalcFunction.Math.Add(a,b);
-                                    break;
-                                }
-                            case "-":
-                                {
-                                    double a = Convert.ToDouble(stack.Pop());
-                                    double b = Convert.ToDouble(stack.Pop());
-                                    summ =CalcFunction.Math.Sub(a,b);
-                                    break;
-                                }
-                            case "*":
-                                {
-                                    double a = Convert.ToDouble(stack.Pop());
-                                    double b = Convert.ToDouble(stack.Pop());
-                                    summ = CalcFunction.Math.Mult(a,b);
-                                    break;
-                                }
-                            case "/":
-                                {
-                                    double a = Convert.ToDouble(stack.Pop());
-                                    double b = Convert.ToDouble(stack.Pop());
-                                    summ = CalcFunction.Math.Div(a,b) ;
-                                    break;
-                                }
-                            case "%":
-                                {
-                                    double a = Convert.ToDouble(stack.Pop());
-                                    double b = Convert.ToDouble(stack.Pop());
-                                    summ = CalcFunction.Math.Mod(a, b);
-                                    break;
-                                }
-                        }
-                    }
-                    catch (Exception ex)
-                    {                        
-                        return $"$ {ex.Message}";
+                        case "+":
+                            {
+                                double a = Convert.ToDouble(stack.Pop());
+                                double b = Convert.ToDouble(stack.Pop());
+                                summ = CalcFunction.Math.Add(a, b);
+                                break;
+                            }
+                        case "-":
+                            {
+                                double a = Convert.ToDouble(stack.Pop());
+                                double b = Convert.ToDouble(stack.Pop());
+                                summ = CalcFunction.Math.Sub(a, b);
+                                break;
+                            }
+                        case "*":
+                            {
+                                double a = Convert.ToDouble(stack.Pop());
+                                double b = Convert.ToDouble(stack.Pop());
+                                summ = CalcFunction.Math.Mult(a, b);
+                                break;
+                            }
+                        case "/":
+                            {
+                                double a = Convert.ToDouble(stack.Pop());
+                                double b = Convert.ToDouble(stack.Pop());
+                                summ = CalcFunction.Math.Div(a, b);
+                                break;
+                            }
+                        case "%":
+                            {
+                                double a = Convert.ToDouble(stack.Pop());
+                                double b = Convert.ToDouble(stack.Pop());
+                                summ = CalcFunction.Math.Mod(a, b);
+                                break;
+                            }
                     }
                     stack.Push(summ.ToString());
                     if (queue.Count > 0)
@@ -281,7 +262,6 @@ namespace AnalyzerClass
                     else
                         break;
                 }
-
             }
             return Convert.ToString(stack.Pop());
         }
@@ -289,17 +269,13 @@ namespace AnalyzerClass
         /// <summary> 
         /// Метод, який організовує обчислення. По черзі запускає CheckCorrncy, Format, CreateStack і RunEstimate
         /// </summary> 
-        /// <returns></returns> 
+        /// <returns>результат математичних операцій або повідомлення про помилку</returns> 
         public static string Estimate()
         {
-            if (CheckCurrency())
-            {
-                Format();
-                var postfixNotation = CreateStack();
-                return RunEstimate((string[])postfixNotation.ToArray(typeof(string)));
-            }
-            else
-                return "$Error";         
+            CheckCurrency();
+            expression = Format();
+            var postfixNotation = CreateStack();
+            return RunEstimate((string[])postfixNotation.ToArray(typeof(string)));
         }
     }
 }
