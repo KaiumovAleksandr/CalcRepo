@@ -525,12 +525,13 @@
             this.textBox_Result.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_Result, 4);
             this.textBox_Result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_Result.Enabled = false;
             this.textBox_Result.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Result.ForeColor = System.Drawing.SystemColors.Window;
             this.textBox_Result.Location = new System.Drawing.Point(115, 60);
             this.textBox_Result.Margin = new System.Windows.Forms.Padding(3, 12, 3, 15);
             this.textBox_Result.Multiline = true;
             this.textBox_Result.Name = "textBox_Result";
+            this.textBox_Result.ReadOnly = true;
             this.textBox_Result.Size = new System.Drawing.Size(223, 21);
             this.textBox_Result.TabIndex = 5;
             // 
@@ -641,6 +642,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.textBox_Expression, 4);
             this.textBox_Expression.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_Expression.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox_Expression.ForeColor = System.Drawing.SystemColors.Window;
             this.textBox_Expression.Location = new System.Drawing.Point(115, 12);
             this.textBox_Expression.Margin = new System.Windows.Forms.Padding(3, 12, 3, 15);
             this.textBox_Expression.Multiline = true;

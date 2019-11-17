@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CalcExceptionLibrary">
-      <HintPath>..\CalcExceptionLibrary\bin\Debug\CalcExceptionLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="CalcFunction">
-      <HintPath>..\CalcFunction\bin\Debug\netstandard2.0\CalcFunction.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +45,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <ProjectReference Include="..\CalcExceptionLibrary\CalcExceptionLibrary.csproj">
+      <Project>{7f030935-01a2-4936-ad2f-6c59970e7c80}</Project>
+      <Name>CalcExceptionLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalcFunction\CalcFunction.csproj">
+      <Project>{9eaea752-7d5f-4a43-bfd0-77bea53d135d}</Project>
+      <Name>CalcFunction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

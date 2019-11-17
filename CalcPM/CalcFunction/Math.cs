@@ -35,7 +35,11 @@ namespace CalcFunction
         /// <param name="firstNumber">divided</param>
         /// <param name="secondNumber">divider</param>
         /// <returns>fraction</returns>
-        public static double Div(double firstNumber, double secondNumber) => firstNumber /secondNumber;
+        public static double Div(double firstNumber,
+            double secondNumber) =>
+            secondNumber == 0
+                ? throw new CalcExceptionLibrary.CalcException(9)
+                : firstNumber / secondNumber;
 
         /// <summary>
         /// The function of module division 

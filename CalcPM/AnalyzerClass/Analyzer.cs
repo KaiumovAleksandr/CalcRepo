@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CalcExceptionLibrary;
 namespace AnalyzerClass
 {
@@ -120,15 +117,6 @@ namespace AnalyzerClass
                             (Char.IsLetter(input[i]) || Char.IsDigit(input[i])); i++)
                             s += input[i];
                 }
-                else
-                {
-                    if (input[pos] == '-' && char.IsDigit(input[pos+1]))
-                    {
-                        for (int i = pos + 1; i < input.Length &&
-                            (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
-                            s += input[i];
-                    }
-                }
                 yield return s;
                 pos += s.Length;
             }
@@ -233,35 +221,35 @@ namespace AnalyzerClass
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Add(b, a);
+                                summ = CalcFunction.Math.Add(a, b);
                                 break;
                             }
                         case "-":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Sub(b, a);
+                                summ = CalcFunction.Math.Sub(a, b);
                                 break;
                             }
                         case "*":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Mult(b, a);
+                                summ = CalcFunction.Math.Mult(a, b);
                                 break;
                             }
                         case "/":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Div(b, a);
+                                summ = CalcFunction.Math.Div(a, b);
                                 break;
                             }
                         case "%":
                             {
                                 double a = Convert.ToDouble(stack.Pop());
                                 double b = Convert.ToDouble(stack.Pop());
-                                summ = CalcFunction.Math.Mod(b, a);
+                                summ = CalcFunction.Math.Mod(a, b);
                                 break;
                             }
                     }
