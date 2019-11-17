@@ -14,6 +14,39 @@ namespace CalcPM
             InitializeComponent();
         }
 
+        public Form1(string exp)
+        {
+            InitializeComponent();
+            Analaizer.expression = exp;
+            string res = string.Empty;
+            try
+            {
+                res = Analaizer.Estimate();
+                textBox_Result.Text = res;
+            }
+            catch (CalcException ex)
+            {
+                switch (ex.ErrorCode)
+                {
+                    case 2:
+                        textBox_Result.Text = $"Error 02. Unknown operator at {ex.ErrorPos} position.";
+                        break;
+                    case 3:
+                        textBox_Result.Text = "Error 03. Incorrect syntax construction of expression.";
+                        break;
+                    case 4:
+                        textBox_Result.Text = $"Error 04. Two opeartors in a row at {ex.ErrorPos} position.";
+                        break;
+                    case 5:
+                        textBox_Result.Text = "Error 05. Unfinished expression.";
+                        break;
+                    case 9:
+                        textBox_Result.Text = "Error 09. Сannot be divided by zero.";
+                        break;
+                }
+            }
+        }
+
         private void button_1_Click(object sender, EventArgs e)
         {
             textBox_Expression.Text += ((Button)sender).Text;
@@ -120,6 +153,7 @@ namespace CalcPM
             {
                 res = Analaizer.Estimate();
                 textBox_Result.Text = res;
+                textBox_Expression.Clear();
             }
             catch (CalcException ex)
             {
@@ -132,7 +166,7 @@ namespace CalcPM
                         textBox_Result.Text = "Error 03. Incorrect syntax construction of expression.";
                         break;
                     case 4:
-                        textBox_Result.Text = $"Error 04. Two same opeartors in a row at {ex.ErrorPos} position.";
+                        textBox_Result.Text = $"Error 04. Two opeartors in a row at {ex.ErrorPos} position.";
                         break;
                     case 5:
                         textBox_Result.Text = "Error 05. Unfinished expression.";
@@ -142,7 +176,6 @@ namespace CalcPM
                         break;
                 }
             }
-            
         }
 
         private void button_mod_Click(object sender, EventArgs e)
