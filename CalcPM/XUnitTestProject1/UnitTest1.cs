@@ -72,10 +72,10 @@ namespace CalcTests
         [InlineData(5, 0)]
         public void DivTestTheorybyZero(double firstNumber, double secondNumber)
         {
-            //act
-            var res = Math.Div(firstNumber, secondNumber);
-            //assert
-            Assert.Equal(firstNumber / secondNumber, res);
+            Assert.Throws<CalcExceptionLibrary.CalcException>(() =>
+            {
+                Math.Div(firstNumber, secondNumber);
+            });
         }
 
         [Theory]
